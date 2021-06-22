@@ -13,57 +13,60 @@ const info4 = document.querySelector("#pokemon-info-4");
 async function pokeFetch(pokemonName) {
   const pokemon = await fetch(baseUrl + pokemonName, { method: "GET" });
   const pokemonObj = await pokemon.json();
-  // console.log(pokemonObj);
 
   //  <-- variables -->
 
-  
-  
   const mainType = pokemonObj.types[0].type.name;
   const secType = () => {
-    if(typeof pokemonObj.types[1]!=='undefined'){return pokemonObj.types[1].type.name;}
-    else return undefined
-  }
+    if (typeof pokemonObj.types[1] !== "undefined") {
+      return pokemonObj.types[1].type.name;
+    } else return undefined;
+  };
   const name = pokemonObj.name;
   const pic = pokemonObj.sprites.front_default;
   const id = pokemonObj.id;
   const exp = pokemonObj.base_experience;
-  console.log(pokemonObj.moves)
   const move1 =
-    pokemonObj.moves.length > 0 ? pokemonObj.moves[Math.round(Math.random() * pokemonObj.moves.length)].move
-      .name : 'PUNCH'
+    pokemonObj.moves.length > 0
+      ? pokemonObj.moves[Math.round(Math.random() * pokemonObj.moves.length)]
+          .move.name
+      : "PUNCH";
   const move2 =
-    pokemonObj.moves.length > 0 ? pokemonObj.moves[Math.round(Math.random() * pokemonObj.moves.length)].move
-    .name : 'KICK'
-
-
+    pokemonObj.moves.length > 0
+      ? pokemonObj.moves[Math.round(Math.random() * pokemonObj.moves.length)]
+          .move.name
+      : "KICK";
 
   //Colors diff approach:
-    const grass = "green";
-    const psychic = "#b0095c";
-    const fire = "red";
-    const water = "#3650ad";
-    const normal = "#cdd1b0";
-    const flying = "#3f7574";
-    const bug = "#a5de95";
-    const poison = "#742cab";
-    const electric = "#fff719";
-    const ground = "#c9c15f";
-    const fighting = "#8a1515";
-    const rock = "#614f45";
-    const ice = "#21556b";
-    const ghost = "#583973";
-    const dragon = "#341e6b";
-    const dark = "#3b2428";
-    const steel = "#5c5c5c";
-    const fairy = "#e8a7b4";
-
+  const grass = "green";
+  const psychic = "#b0095c";
+  const fire = "red";
+  const water = "#3650ad";
+  const normal = "#cdd1b0";
+  const flying = "#3f7574";
+  const bug = "#a5de95";
+  const poison = "#742cab";
+  const electric = "#fff719";
+  const ground = "#c9c15f";
+  const fighting = "#8a1515";
+  const rock = "#614f45";
+  const ice = "#21556b";
+  const ghost = "#583973";
+  const dragon = "#341e6b";
+  const dark = "#3b2428";
+  const steel = "#5c5c5c";
+  const fairy = "#e8a7b4";
 
   //  <-- DOM -->
   image.src = pic;
-  if(typeof eval(secType()) === 'undefined'){
-    image.style.backgroundColor = eval(mainType)
-  }else{image.style.background = `linear-gradient(170deg, ${eval(mainType)} 0%, ${eval(secType())} 100%)`}
+  if (typeof eval(secType()) === "undefined") {
+    image.style.background = 'none'
+    image.style.backgroundColor = eval(mainType);
+  } else {
+    image.style.background = `linear-gradient(170deg, ${eval(
+      mainType
+    )} 0%, ${eval(secType())} 100%)`;
+  }
   title.innerText = name.replace(name[0], name[0].toUpperCase());
   info1.innerHTML = `<strong>Base Experience:</strong> ${exp}`;
   info2.innerHTML = `<strong>ID:</strong> ${id}`;
@@ -1086,6 +1089,6 @@ input.addEventListener(
   (event) => event.key === "Enter" && submit.click()
 );
 submit.addEventListener("click", () => pokeFetch(input.value.toLowerCase()));
-random.addEventListener("click", () => 
+random.addEventListener("click", () =>
   pokeFetch(pokeNameArr[Math.round(Math.random() * pokeNameArr.length)])
 );
