@@ -17,78 +17,53 @@ async function pokeFetch(pokemonName) {
 
   //  <-- variables -->
 
+  
+  
   const mainType = pokemonObj.types[0].type.name;
+  const secType = () => {
+    if(typeof pokemonObj.types[1]!=='undefined'){return pokemonObj.types[1].type.name;}
+    else return undefined
+  }
   const name = pokemonObj.name;
   const pic = pokemonObj.sprites.front_default;
   const id = pokemonObj.id;
   const exp = pokemonObj.base_experience;
+  console.log(pokemonObj.moves)
   const move1 =
-    pokemonObj.moves[Math.round(Math.random() * pokemonObj.moves.length)].move
-      .name;
+    pokemonObj.moves.length > 0 ? pokemonObj.moves[Math.round(Math.random() * pokemonObj.moves.length)].move
+      .name : 'PUNCH'
   const move2 =
-    pokemonObj.moves[Math.round(Math.random() * pokemonObj.moves.length)].move
-      .name;
+    pokemonObj.moves.length > 0 ? pokemonObj.moves[Math.round(Math.random() * pokemonObj.moves.length)].move
+    .name : 'KICK'
 
-  //  <-- color/type picker -->
-  switch (mainType) {
-    case "grass":
-      image.style.backgroundColor = "green";
-      break;
-    case "psychic":
-      image.style.backgroundColor = "#b0095c";
-      break;
-    case "fire":
-      image.style.backgroundColor = "red";
-      break;
-    case "water":
-      image.style.backgroundColor = "#3650ad";
-      break;
-    case "normal":
-      image.style.backgroundColor = "#cdd1b0";
-      break;
-    case "flying":
-      image.style.backgroundColor = "#3f7574";
-      break;
-    case "bug":
-      image.style.backgroundColor = "#a5de95";
-      break;
-    case "poison":
-      image.style.backgroundColor = "#742cab";
-      break;
-    case "electric":
-      image.style.backgroundColor = "#fff719";
-      break;
-    case "ground":
-      image.style.backgroundColor = "#c9c15f";
-      break;
-    case "fighting":
-      image.style.backgroundColor = "#8a1515";
-      break;
-    case "rock":
-      image.style.backgroundColor = "#614f45";
-      break;
-    case "ice":
-      image.style.backgroundColor = "#21556b";
-      break;
-    case "ghost":
-      image.style.backgroundColor = "#583973";
-      break;
-    case "dragon":
-      image.style.backgroundColor = "#341e6b";
-      break;
-    case "dark":
-      image.style.backgroundColor = "#3b2428";
-      break;
-    case "steel":
-      image.style.backgroundColor = "#5c5c5c";
-      break;
-    case "fairy":
-      image.style.backgroundColor = "#e8a7b4";
-      break;
-  }
+
+
+  //Colors diff approach:
+    const grass = "green";
+    const psychic = "#b0095c";
+    const fire = "red";
+    const water = "#3650ad";
+    const normal = "#cdd1b0";
+    const flying = "#3f7574";
+    const bug = "#a5de95";
+    const poison = "#742cab";
+    const electric = "#fff719";
+    const ground = "#c9c15f";
+    const fighting = "#8a1515";
+    const rock = "#614f45";
+    const ice = "#21556b";
+    const ghost = "#583973";
+    const dragon = "#341e6b";
+    const dark = "#3b2428";
+    const steel = "#5c5c5c";
+    const fairy = "#e8a7b4";
+
 
   //  <-- DOM -->
   image.src = pic;
+  if(typeof eval(secType()) === 'undefined'){
+    image.style.backgroundColor = eval(mainType)
+  }else{image.style.background = `linear-gradient(170deg, ${eval(mainType)} 0%, ${eval(secType())} 100%)`}
   title.innerText = name.replace(name[0], name[0].toUpperCase());
   info1.innerHTML = `<strong>Base Experience:</strong> ${exp}`;
   info2.innerHTML = `<strong>ID:</strong> ${id}`;
@@ -1110,7 +1085,7 @@ input.addEventListener(
   "keydown",
   (event) => event.key === "Enter" && submit.click()
 );
-submit.addEventListener("click", () => pokeFetch(input.value));
+submit.addEventListener("click", () => pokeFetch(input.value.toLowerCase()));
 random.addEventListener("click", () => 
   pokeFetch(pokeNameArr[Math.round(Math.random() * pokeNameArr.length)])
 );

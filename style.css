@@ -124,7 +124,13 @@ input[type="submit"] {
 }
 
 footer {
-  background-color: rgba(250, 128, 114, 0);
-  position: fixed;
-  bottom: 10px;
+  background-color: rgba(41, 24, 23, 0.774);
+  position: absolute;
+  bottom: 0px;
+  padding: 10px;
+  width: 100vw;
+}
+
+button, input {
+  margin: 7.5px;
 }
