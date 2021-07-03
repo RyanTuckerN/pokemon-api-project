@@ -1,8 +1,128 @@
 body {
   height: 100vh;
-  background-image: url(https://c4.wallpaperflare.com/wallpaper/478/727/680/pikachu-simple-background-minimalism-simple-wallpaper-preview.jpg);
+  background: url(https://c4.wallpaperflare.com/wallpaper/478/727/680/pikachu-simple-background-minimalism-simple-wallpaper-preview.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+
+#intro-screen{
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(19, 32, 59);
+}
+
+#evolution{
+  position: relative;
+  height: 300px;
+  width: 300px;
+  animation: evo 7s;
+  animation-delay: 1s;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+
+@keyframes evo {
+0% {src: none;}
+5% {background: url(./assets/magikarp.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+20% {background: url(./assets/gyrados.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+30% {background: url(./assets/magikarp.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+35% {background: url(./assets/gyrados.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+37.5% {background: url(./assets/magikarp.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+40% {background: url(./assets/gyrados.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+41% {background: url(./assets/magikarp.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+42% {background: url(./assets/gyrados.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+43% {background: url(./assets/magikarp.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+44%{background: url(./assets/gyrados.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+45% {background: url(./assets/magikarp.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+46%{background: url(./assets/gyrados.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+47%{background: url(./assets/gyrados.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+48%{background: url(./assets/magikarp.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+49%{background: url(./assets/gyrados.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+50% {background: url(./assets/magikarp.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+51%{background: url(./assets/gyrados.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+52% {background: url(./assets/magikarp.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+53%{background: url(./assets/gyrados.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+54% {background: url(./assets/magikarp.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+55%{background: url(./assets/gyrados.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+56% {background: url(./assets/magikarp.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+57%{background: url(./assets/gyrados.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+58%{background: url(./assets/magikarp.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+60%{background: url(./assets/gyrados.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+80% {background: url(./assets/gyrados.png);
+  background-size: cover;
+  background-repeat: no-repeat;}
+81%{background: url(./assets/logo.png);
+  background-size: contain;
+  background-repeat: no-repeat;}
+100%{background: url(./assets/logo.png);
+  background-size: contain;
+  background-repeat: no-repeat;}
+}
+
+.fade-out{
+  transition: opacity .5s ease-in-out;;
+  -webkit-transition: opacity .5s ease-in-out;
+  -moz-transition: opacity .5s ease-in-out;
+  -ms-transition: opacity .5s ease-in-out;
+  -o-transition: opacity .5s ease-in-out;
+   opacity: 0;
 }
 
 #pokemon-sprite {
@@ -93,7 +213,7 @@ input[type="submit"] {
   }
   body {
     background-color: rgb(27, 26, 26);
-    background-image: none;
+    background: none;
     height: auto;
   }
   button {

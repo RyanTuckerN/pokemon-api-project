@@ -8,6 +8,16 @@ const info1 = document.querySelector("#pokemon-info-1");
 const info2 = document.querySelector("#pokemon-info-2");
 const info3 = document.querySelector("#pokemon-info-3");
 const info4 = document.querySelector("#pokemon-info-4");
+const audio = document.querySelector('audio')
+const introScreen = document.querySelector('#intro-screen')
+
+
+//Fade intro screen
+setTimeout(()=>introScreen.classList.add('fade-out'), 7800)
+setTimeout(()=>introScreen.remove(), 8300)
+
+//Set focus on text input
+input.focus()
 
 // *** *** FETCH FUNCTION *** *** //
 async function pokeFetch(pokemonName) {
