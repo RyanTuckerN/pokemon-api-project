@@ -4,6 +4,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   overflow-x: hidden;
+  background-color: rgb(44, 39, 39);
 }
 
 #intro-screen{
@@ -213,7 +214,6 @@ input[type="submit"] {
   }
   body {
     background-color: rgb(27, 26, 26);
-    background: none;
     height: auto;
   }
   button {
@@ -235,6 +235,11 @@ input[type="submit"] {
   #pokemon-info-1,
   #pokemon-info-2 {
     display: none;
+  }
+  #evolution{
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
   }
 }
 
