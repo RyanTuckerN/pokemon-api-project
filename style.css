@@ -28,7 +28,7 @@ button {
 
 input {
   border-radius: 12px;
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
 }
 
 * {
@@ -37,6 +37,8 @@ input {
 body {
   font: 16px Arial;
 }
+
+
 .autocomplete {
   /*the container must be positioned relative:*/
   position: relative;
@@ -92,6 +94,7 @@ input[type="submit"] {
   body {
     background-color: rgb(27, 26, 26);
     background-image: none;
+    height: auto;
   }
   button {
     margin: none;
